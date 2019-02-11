@@ -1,4 +1,4 @@
-package com.fferr10.melichallenge.solar.system.tracker;
+package com.fferr10.melichallenge.solar.system.tracker.daily;
 
 import com.fferr10.melichallenge.solar.system.Satellite;
 import com.fferr10.melichallenge.solar.system.model.DailyWeatherResult;

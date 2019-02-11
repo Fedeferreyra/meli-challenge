@@ -9,11 +9,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class SolarSystemPositionsPositionsCalculator implements PositionsCalculator<SolarSystem, Integer, SolarSystemPositions> {
+public class SolarSystemPositionsCalculator implements PositionsCalculator<SolarSystem, Integer, SolarSystemPositions> {
 
-    private final PlanetPositionPositionsCalculator planetPositionCalculator;
+    private final PlanetPositionCalculator planetPositionCalculator;
 
-    public SolarSystemPositionsPositionsCalculator(PlanetPositionPositionsCalculator planetPositionCalculator) {
+    public SolarSystemPositionsCalculator(PlanetPositionCalculator planetPositionCalculator) {
         this.planetPositionCalculator = planetPositionCalculator;
     }
 

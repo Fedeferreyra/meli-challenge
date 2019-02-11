@@ -22,7 +22,8 @@ public class PositionsInterpreter implements Function<SolarSystemPositions, Weat
             }
             return new WeatherResult(WeatherResult.WeatherType.OPTIMAL);
         } else if (shape.isPointInside(sunPoint)) {
-            return new RainyWeatherResult(WeatherResult.WeatherType.RAINY, shape.getPerimeter());
+            return new RainyWeatherResult(shape.getPerimeter());
+
         } else {
             return new WeatherResult(WeatherResult.WeatherType.TRANSITION);
         }

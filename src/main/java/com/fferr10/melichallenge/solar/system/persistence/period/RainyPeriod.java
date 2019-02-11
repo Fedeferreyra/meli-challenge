@@ -16,8 +16,8 @@ public class RainyPeriod extends WeatherPeriod{
 
     public RainyPeriod() { }
 
-    public RainyPeriod(WeatherResult.WeatherType weatherType, Integer count, MostRainyDay mostRainyDay) {
-        super(weatherType, count);
+    public RainyPeriod(Integer count, MostRainyDay mostRainyDay) {
+        super(WeatherResult.WeatherType.RAINY, count);
         this.mostRainyDay = mostRainyDay;
     }
 

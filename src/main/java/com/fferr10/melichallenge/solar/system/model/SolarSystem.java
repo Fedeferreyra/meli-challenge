@@ -1,15 +1,14 @@
 package com.fferr10.melichallenge.solar.system.model;
 
 import com.google.common.collect.Lists;
-import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.List;
 
-@Component
 public class SolarSystem {
 
     private List<Planet> planets;
-    private final Point sunPoint = new Point(Double.valueOf(0), Double.valueOf(0));
+    private final Point sunPoint = new Point(BigDecimal.ZERO, BigDecimal.ZERO);
 
     public SolarSystem() {
         Planet farengi = new Planet("Farengi", 1, 500);

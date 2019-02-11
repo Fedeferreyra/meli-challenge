@@ -1,8 +1,13 @@
 package com.fferr10.melichallenge.solar.system.model.shape;
 
 import com.fferr10.melichallenge.solar.system.model.Point;
+import com.fferr10.melichallenge.solar.system.utils.BigDecimalFormatter;
 
-class Triangle extends Shape {
+import java.math.BigDecimal;
+
+import static com.fferr10.melichallenge.solar.system.utils.BigDecimalFormatter.toBigDecimal;
+
+public class Triangle extends Shape {
 
     private Point a;
     private Point b;
@@ -15,39 +20,42 @@ class Triangle extends Shape {
     }
 
     @Override
-    public Double getArea() {
-        return Math.abs(0.5 * (a.getX() * (b.getY() - c.getY()) +
-                b.getX() * (c.getY() - a.getY()) +
-                c.getX() * (a.getY() - b.getY())));
+    public BigDecimal getArea() {
+        BigDecimal ax = a.getX().multiply(b.getY().subtract(c.getY()));
+        BigDecimal bx = b.getX().multiply(c.getY().subtract(a.getY()));
+        BigDecimal cx = c.getX().multiply(a.getY().subtract(b.getY()));
+        
+        return toBigDecimal(Math.abs(0.5 * (ax.add(bx).add(cx).doubleValue())));
     }
 
     @Override
-    public Double getPerimeter() {
-        Double abSide = a.calculateDistanceTo(b);
-        Double bcSide = b.calculateDistanceTo(c);
-        Double caSide = c.calculateDistanceTo(a);
-        return abSide + bcSide + caSide;
+    public BigDecimal getPerimeter() {
+        BigDecimal abSide = a.calculateDistanceTo(b);
+        BigDecimal bcSide = b.calculateDistanceTo(c);
+        BigDecimal caSide = c.calculateDistanceTo(a);
+        return abSide.add(bcSide.add(caSide));
     }
 
     @Override
     public Boolean isPointInside(Point point) {
-        Double abcArea = getArea();
+        BigDecimal abcArea = getArea();
 
-        Double abPointArea = new Triangle(a, b, point).getArea();
-        Double acPointArea = new Triangle(a, c, point).getArea();
-        Double bcPointArea = new Triangle(b, c, point).getArea();
+        BigDecimal abPointArea = new Triangle(a, b, point).getArea();
+        BigDecimal acPointArea = new Triangle(a, c, point).getArea();
+        BigDecimal bcPointArea = new Triangle(b, c, point).getArea();
 
-        return abPointArea + acPointArea + bcPointArea == abcArea;
+        return abPointArea.add(acPointArea .add(bcPointArea)).compareTo(abcArea) == 0;
     }
 
     @Override
     public Boolean areVertexesCollinear() {
-        return getArea() == 0;
+        return getArea().compareTo(BigDecimal.ZERO) == 0;
     }
 
     @Override
     public Boolean areVertexesCollinearWithPoint(Point point) {
+
         Triangle triangle = new Triangle(a, b, point);
-        return triangle.getArea() == 0;
+        return this.getArea().compareTo(BigDecimal.ZERO) == 0 && triangle.getArea().compareTo(BigDecimal.ZERO) == 0;
     }
 }

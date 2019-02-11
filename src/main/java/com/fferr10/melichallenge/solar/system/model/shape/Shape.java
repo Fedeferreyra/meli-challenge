@@ -2,6 +2,7 @@ package com.fferr10.melichallenge.solar.system.model.shape;
 
 import com.fferr10.melichallenge.solar.system.model.Point;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +20,7 @@ public abstract class Shape {
         try {
             Point[] pointsArray = new Point[points.size()];
             pointsArray = points.toArray(pointsArray);
-            return (Shape) shapesMap.get(points.size()).getConstructor(Point[].class).newInstance((Object)pointsArray);
+            return (Shape) shapesMap.get(points.size()).getConstructor(Point[].class).newInstance((Object) pointsArray);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -27,9 +28,9 @@ public abstract class Shape {
         return new Triangle((Point[]) points.toArray());
     }
 
-    public abstract Double getArea();
+    public abstract BigDecimal getArea();
 
-    public abstract Double getPerimeter();
+    public abstract BigDecimal getPerimeter();
 
     public abstract Boolean isPointInside(Point point);
 

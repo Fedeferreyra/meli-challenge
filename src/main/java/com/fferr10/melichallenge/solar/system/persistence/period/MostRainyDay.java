@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.math.BigDecimal;
 
 @Entity
 public class MostRainyDay {
@@ -11,12 +12,12 @@ public class MostRainyDay {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Integer day;
-    private Double intensity;
+    private BigDecimal intensity;
 
     public MostRainyDay() {
     }
 
-    public MostRainyDay(Integer day, Double intensity) {
+    public MostRainyDay(Integer day, BigDecimal intensity) {
         this.day = day;
         this.intensity = intensity;
     }
@@ -37,11 +38,11 @@ public class MostRainyDay {
         this.day = day;
     }
 
-    public Double getIntensity() {
+    public BigDecimal getIntensity() {
         return intensity;
     }
 
-    public void setIntensity(Double Integerensity) {
-        this.intensity = Integerensity;
+    public void setIntensity(BigDecimal intensity) {
+        this.intensity = intensity;
     }
 }
