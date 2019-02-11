@@ -1,10 +1,9 @@
 package com.fferr10.melichallenge.solar.system.fixture;
 
+import com.fferr10.melichallenge.solar.system.interpreter.result.RainyWeatherResult;
 import com.fferr10.melichallenge.solar.system.interpreter.result.WeatherResult;
-import com.fferr10.melichallenge.solar.system.model.Planet;
-import com.fferr10.melichallenge.solar.system.model.Point;
-import com.fferr10.melichallenge.solar.system.model.SolarSystem;
-import com.fferr10.melichallenge.solar.system.model.SolarSystemPositions;
+import com.fferr10.melichallenge.solar.system.model.*;
+import com.fferr10.melichallenge.solar.system.persistence.period.LastPeriod;
 import com.google.common.collect.Lists;
 
 import java.math.BigDecimal;
@@ -34,6 +33,7 @@ public class TestFixture {
         return new Point(format(BigDecimal.ZERO), y);
 
     }
+
     protected Point randomPoint() {
         return new Point(toBigDecimal(new Random().nextDouble()), toBigDecimal(new Random().nextDouble()));
     }
@@ -41,9 +41,21 @@ public class TestFixture {
     private List<Point> planetPoints = Lists.newArrayList(randomPoint(), randomPoint(), randomPoint());
     protected SolarSystemPositions solarSystemPositions = new SolarSystemPositions(planetPoints, origin);
 
-    protected WeatherResult randomWeatherResult(){
+    protected WeatherResult randomWeatherResult() {
         List<WeatherResult.WeatherType> weatherTypes = Arrays.asList(WeatherResult.WeatherType.values());
 
         return new WeatherResult(weatherTypes.get(new Random().nextInt(4)));
     }
+
+    protected DailyWeatherResult droughtDailyWeatherResult = new DailyWeatherResult(1,
+            new WeatherResult(WeatherResult.WeatherType.DROUGHT));
+
+    protected DailyWeatherResult rainyDailyWeatherResult = new DailyWeatherResult(1,
+            new RainyWeatherResult(toBigDecimal(9)));
+
+    protected LastPeriod droughtLastPeriod = new LastPeriod(WeatherResult.WeatherType.DROUGHT,
+            droughtDailyWeatherResult.getDay());
+
+    protected LastPeriod rainyLastPeriod = new LastPeriod(WeatherResult.WeatherType.RAINY, rainyDailyWeatherResult.getDay(),
+            toBigDecimal(2), rainyDailyWeatherResult.getDay());
 }
