@@ -1,4 +1,4 @@
-package com.fferr10.melichallenge.solar.system.fixture;
+package com.fferr10.melichallenge.solar.fixture;
 
 import com.fferr10.melichallenge.solar.system.interpreter.result.RainyWeatherResult;
 import com.fferr10.melichallenge.solar.system.interpreter.result.WeatherResult;
@@ -7,7 +7,6 @@ import com.fferr10.melichallenge.solar.system.persistence.period.LastPeriod;
 import com.google.common.collect.Lists;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;

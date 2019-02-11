@@ -1,6 +1,6 @@
 package com.fferr10.melichallenge.solar.system.calculator;
 
-import com.fferr10.melichallenge.solar.system.fixture.TestFixture;
+import com.fferr10.melichallenge.solar.fixture.TestFixture;
 import com.fferr10.melichallenge.solar.system.model.Point;
 import org.junit.Assert;
 import org.junit.Before;

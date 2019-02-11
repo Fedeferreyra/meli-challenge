@@ -1,7 +1,6 @@
 package com.fferr10.melichallenge.solar.system.calculator;
 
 import com.fferr10.melichallenge.solar.system.model.Planet;
-import com.fferr10.melichallenge.solar.system.utils.BigDecimalFormatter;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;

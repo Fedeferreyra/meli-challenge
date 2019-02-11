@@ -1,7 +1,7 @@
 package com.fferr10.melichallenge.solar.system;
 
 import com.fferr10.melichallenge.solar.system.calculator.SolarSystemPositionsCalculator;
-import com.fferr10.melichallenge.solar.system.fixture.TestFixture;
+import com.fferr10.melichallenge.solar.fixture.TestFixture;
 import com.fferr10.melichallenge.solar.system.interpreter.PositionsInterpreter;
 import com.fferr10.melichallenge.solar.system.model.DailyWeatherResult;
 import com.fferr10.melichallenge.solar.system.observer.Observer;

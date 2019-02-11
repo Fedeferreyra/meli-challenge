@@ -1,9 +1,8 @@
 package com.fferr10.melichallenge.solar.system.tracker.period;
 
-import com.fferr10.melichallenge.solar.system.fixture.TestFixture;
+import com.fferr10.melichallenge.solar.fixture.TestFixture;
 import com.fferr10.melichallenge.solar.system.interpreter.result.RainyWeatherResult;
 import com.fferr10.melichallenge.solar.system.interpreter.result.WeatherResult;
-import com.fferr10.melichallenge.solar.system.model.DailyWeatherResult;
 import com.fferr10.melichallenge.solar.system.persistence.period.LastPeriod;
 import com.fferr10.melichallenge.solar.system.persistence.period.LastPeriodRepository;
 import org.junit.Before;

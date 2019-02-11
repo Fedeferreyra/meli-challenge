@@ -1,6 +1,6 @@
 package com.fferr10.melichallenge.solar.system.interpreter;
 
-import com.fferr10.melichallenge.solar.system.fixture.TestFixture;
+import com.fferr10.melichallenge.solar.fixture.TestFixture;
 import com.fferr10.melichallenge.solar.system.interpreter.result.RainyWeatherResult;
 import com.fferr10.melichallenge.solar.system.interpreter.result.WeatherResult;
 import com.fferr10.melichallenge.solar.system.model.shape.Shape;
